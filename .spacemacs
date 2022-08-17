@@ -49,6 +49,8 @@ This function should only modify configuration layer settings."
      (typescript :variables
                  typescript-linter 'tslint
                  typescript-backend 'tide)
+     (scheme :variables
+             scheme-implementations '(chicken))
      markdown
      lsp
      multiple-cursors
@@ -57,8 +59,9 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
+     (csharp :variables csharp-backend 'omnisharp)
+     spell-checking
+     syntax-checking
      ;; version-control
      treemacs)
 
