@@ -33,6 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(yaml
+     '(tabs :variables tabs-highlight-current-tab 'left)
      sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -61,7 +62,6 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
      (csharp :variables csharp-backend 'omnisharp)
-     spell-checking
      syntax-checking
      ;; version-control
      treemacs)
@@ -75,7 +75,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(geiser-chicken)
+   dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -129,11 +129,11 @@ It should only modify the values of Spacemacs settings."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
 
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
-   dotspacemacs-elpa-timeout 5
+   dotspacemacs-elpa-timeout 30
 
    ;; Set `gc-cons-threshold' and `gc-cons-percentage' when startup finishes.
    ;; This is an advanced option and should not be changed unless you suspect
@@ -261,7 +261,7 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Comic Code"
-                               :size 14.0
+                               :size 14
                                :weight normal
                                :width normal)
 
@@ -419,7 +419,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers `relative
+   dotspacemacs-line-numbers nil
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -565,30 +565,5 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq-default typescript-indent-level 2
-                js-indent-level 2)
-)
-
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(treemacs-magit smeargle helm-ls-git helm-git-grep gitignore-templates git-timemachine git-modes git-messenger git-link forge yaml magit ghub closql emacsql-sqlite emacsql treepy magit-section git-commit with-editor compat yaml-mode yasnippet-snippets origami lsp-mode helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip auto-yasnippet ac-ispell auto-complete sqlup-mode sql-indent company xterm-color vterm terminal-here shell-pop multi-term eshell-z eshell-prompt-extras esh-help mmm-mode markdown-toc markdown-mode gh-md tern web-beautify tide typescript-mode prettier-js npm-mode nodejs-repl livid-mode skewer-mode simple-httpd json-reformat json-navigator hierarchy json-mode json-snatcher js2-refactor yasnippet multiple-cursors js2-mode js-doc geiser-chicken geiser transient ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons solarized-theme restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 89)) (:foreground "#657b83" :background "#fdf6e3"))))
- '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+  (setq-default typescript-indent-level 2 js-indent-level 2)
 )
