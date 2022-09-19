@@ -33,7 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(yaml
-     '(tabs :variables tabs-highlight-current-tab 'left)
+     (tabs :variables tabs-highlight-current-tab 'left)
      sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -44,6 +44,7 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      emacs-lisp
      git
+     docker
      (groovy :variables groovy-backend 'company-groovy)
      helm
      json
