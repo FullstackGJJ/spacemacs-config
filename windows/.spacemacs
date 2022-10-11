@@ -33,7 +33,6 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(yaml
-     (tabs :variables tabs-highlight-current-tab 'left)
      sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -242,7 +241,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
+   dotspacemacs-themes '(leuven
+                         solarized-light
                          solarized-dark)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -567,4 +567,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq-default typescript-indent-level 2 js-indent-level 2)
+  (global-set-key (kbd "S-<right>") 'tab-next)
+  (global-set-key (kbd "S-<left>") 'tab-previous)
+  (global-set-key (kbd "S-<delete>") 'tab-close)
+  (global-set-key (kbd "S-<insert>") 'tab-new)
 )
