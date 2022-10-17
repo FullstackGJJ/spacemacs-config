@@ -54,7 +54,6 @@ This function should only modify configuration layer settings."
              scheme-implementations '(chicken))
      markdown
      lsp
-     (ruby :variables ruby-backend 'robe)
      multiple-cursors
      sql
      org
@@ -66,7 +65,8 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      ;; version-control
-     treemacs)
+     treemacs
+     themes-megapack)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -77,7 +77,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(geiser-chicken base16-theme)
+   dotspacemacs-additional-packages '(geiser-chicken)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -243,7 +243,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(leuven
+   dotspacemacs-themes '(organic-green
+                         leuven
                          solarized-light
                          solarized-dark)
 
